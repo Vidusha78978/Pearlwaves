@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { authApi } from '../utils/supabaseClient'
+import { useAuth } from '../context/AuthContext'
 import styles from './Auth.module.css'
 
 export default function Register() {
@@ -12,8 +12,10 @@ export default function Register() {
     confirmPassword: ''
   })
   const [error, setError] = useState('')
+  const [success, setSuccess] = useState('')
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
+  const { register } = useAuth()
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -23,6 +25,18 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setError('')
+    setSuccess('')
+
+    // Validation
+    if (!formData.fullName.trim()) {
+      setError('Full name is required')
+      return
+    }
+
+    if (formData.password.length < 6) {
+      setError('Password must be at least 6 characters')
+      return
+    }
 
     if (formData.password !== formData.confirmPassword) {
       setError('Passwords do not match')
@@ -32,13 +46,21 @@ export default function Register() {
     setLoading(true)
 
     try {
-      const { data, error: authError } = await authApi.signUp(
+      const { data, error: regError } = await register(
         formData.email,
         formData.password,
-        { fullName: formData.fullName }
+        formData.fullName
       )
-      if (authError) throw authError
-      navigate('/login')
+
+      if (regError) throw new Error(regError)
+
+      setSuccess('Registration successful! Please check your email to verify your account.')
+      setFormData({ fullName: '', email: '', password: '', confirmPassword: '' })
+      
+      // Redirect to login after 2 seconds
+      setTimeout(() => {
+        navigate('/login')
+      }, 2000)
     } catch (err) {
       setError(err.message || 'Registration failed. Please try again.')
     } finally {
@@ -112,7 +134,8 @@ export default function Register() {
             />
           </div>
 
-          {error && <div className="form-error">{error}</div>}
+          {error && <div className="form-error" style={{ color: '#ff006e', marginBottom: '15px' }}>{error}</div>}
+          {success && <div className="form-success" style={{ color: '#00d4ff', marginBottom: '15px', padding: '10px', borderRadius: '4px', backgroundColor: 'rgba(0, 212, 255, 0.1)' }}>{success}</div>}
 
           <motion.button
             type="submit"

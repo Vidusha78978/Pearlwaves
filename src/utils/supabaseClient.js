@@ -75,3 +75,42 @@ export const mediaApi = {
     return { data, error }
   }
 }
+
+// Profile functions
+export const profileApi = {
+  getProfile: async (userId) => {
+    const { data, error } = await supabase
+      .from('user_profiles')
+      .select('*')
+      .eq('id', userId)
+      .single()
+    return { data, error }
+  },
+
+  updateProfile: async (userId, profileData) => {
+    const { data, error } = await supabase
+      .from('user_profiles')
+      .update(profileData)
+      .eq('id', userId)
+      .select()
+    
+    // If no data exists, create new profile
+    if (error && error.code === 'PGRST116') {
+      const { data: newData, error: insertError } = await supabase
+        .from('user_profiles')
+        .insert([{ id: userId, ...profileData }])
+        .select()
+      return { data: newData, error: insertError }
+    }
+
+    return { data, error }
+  },
+
+  createProfile: async (userId, profileData) => {
+    const { data, error } = await supabase
+      .from('user_profiles')
+      .insert([{ id: userId, ...profileData }])
+      .select()
+    return { data, error }
+  }
+}

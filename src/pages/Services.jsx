@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { FaCode, FaDatabase, FaMobileAlt, FaCloud, FaBug, FaShieldAlt } from 'react-icons/fa'
+import { FaCode, FaDatabase, FaMobileAlt, FaCloud, FaBug, FaShieldAlt, FaWhatsapp } from 'react-icons/fa'
 import styles from './Services.module.css'
 
 export default function Services() {
@@ -121,6 +121,17 @@ export default function Services() {
                       {feature}
                     </span>
                   ))}
+                </div>
+                <div style={{ marginTop: '1.5rem', textAlign: 'center' }}>
+                  <a 
+                    href={`https://wa.me/94760411245?text=${encodeURIComponent(`Hello! I would like to start the ${service.title} service.`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-primary"
+                    style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '0.5rem' }}
+                  >
+                    <FaWhatsapp /> Book Now
+                  </a>
                 </div>
               </motion.div>
             ))}

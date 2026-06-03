@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { FaCode, FaMobileAlt, FaRocket, FaPalette } from 'react-icons/fa'
+import { FaCode, FaMobileAlt, FaRocket, FaPalette, FaLaptopCode, FaPenNib, FaWhatsapp } from 'react-icons/fa'
 import styles from './Home.module.css'
 
 export default function Home() {
@@ -28,9 +28,9 @@ export default function Home() {
   ]
 
   const stats = [
-    { value: '100+', label: 'Projects Completed' },
-    { value: '50+', label: 'Happy Clients' },
-    { value: '10+', label: 'Years Experience' },
+    { value: '50+', label: 'Projects Completed' },
+    { value: '20+', label: 'Happy Clients' },
+    { value: '5+', label: 'Years Experience' },
     { value: '24/7', label: 'Support' }
   ]
 
@@ -86,13 +86,51 @@ export default function Home() {
               </div>
             </motion.div>
 
-            <motion.div
-              animate={{ y: [0, 20, 0] }}
-              transition={{ duration: 4, repeat: Infinity }}
-              className={styles.heroEmoji}
-            >
-              🌊
-            </motion.div>
+            <div className={styles.heroVisual}>
+              <motion.div
+                animate={{ y: [0, -20, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className={styles.heroEmoji}
+              >
+                🌊
+              </motion.div>
+
+              <motion.div 
+                className={`${styles.floatingTag} ${styles.tag1}`}
+                animate={{ y: [0, -15, 0], x: [0, 10, 0] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0 }}
+                title="Web Design"
+              >
+                <FaLaptopCode size={30} />
+              </motion.div>
+              
+              <motion.div 
+                className={`${styles.floatingTag} ${styles.tag2}`}
+                animate={{ y: [0, 20, 0], x: [0, -15, 0] }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                title="Graphic Design"
+              >
+                <FaPenNib size={30} />
+              </motion.div>
+
+              <motion.div 
+                className={`${styles.floatingTag} ${styles.tag3}`}
+                animate={{ y: [0, -25, 0], x: [0, -10, 0] }}
+                transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+                title="Software Development"
+              >
+                <FaCode size={30} />
+              </motion.div>
+
+              <motion.div 
+                className={`${styles.floatingTag} ${styles.tag4}`}
+                animate={{ y: [0, 15, 0], x: [0, 15, 0] }}
+                transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+                title="Mobile App Development"
+              >
+                <FaMobileAlt size={30} />
+              </motion.div>
+            </div>
           </div>
         </div>
 
@@ -170,9 +208,20 @@ export default function Home() {
                 </div>
                 <h3>{service.title}</h3>
                 <p>{service.description}</p>
-                <Link to="/services" className={styles.learnMore}>
-                  Learn More →
-                </Link>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '1.5rem' }}>
+                  <Link to="/services" className={styles.learnMore}>
+                    Learn More →
+                  </Link>
+                  <a 
+                    href={`https://wa.me/94760411245?text=${encodeURIComponent(`Hello! I would like to start the ${service.title} service.`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-primary btn-sm"
+                    style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}
+                  >
+                    <FaWhatsapp /> Book Now
+                  </a>
+                </div>
               </motion.div>
             ))}
           </motion.div>

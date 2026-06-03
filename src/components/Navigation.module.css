@@ -38,8 +38,8 @@
 }
 
 .logoIcon {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   object-fit: contain;
   border-radius: var(--radius-md);
 }
@@ -82,9 +82,84 @@
   width: 100%;
 }
 
+.activeLink {
+  color: var(--primary);
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(0, 102, 255, 0.5);
+}
+
+.activeLink::after {
+  width: 100%;
+  background: var(--primary);
+  box-shadow: 0 0 8px var(--primary);
+}
+
 .authButtons {
   display: flex;
   gap: 1rem;
+}
+
+.userMenu {
+  position: relative;
+}
+
+.userBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all var(--transition);
+}
+
+.userBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 102, 255, 0.3);
+}
+
+.profileDropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 0.5rem;
+  background: var(--dark-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  min-width: 250px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  z-index: 1001;
+}
+
+.profileHeader {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.profileHeader p {
+  margin: 0.25rem 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.profileHeader p:first-child {
+  color: var(--text-light);
+  font-weight: 600;
+}
+
+.profileDropdown button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 .mobileToggle {
@@ -131,6 +206,9 @@
   .menu li {
     padding: 1rem;
     border-bottom: 1px solid var(--border-color);
+    text-align: center;
+    display: flex;
+    justify-content: center;
   }
 
   .mobileToggle {

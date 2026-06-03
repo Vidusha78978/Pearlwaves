@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram, FaGithub } from 'react-icons/fa'
+import { FaFacebook, FaLinkedin, FaGithub, FaWhatsapp } from 'react-icons/fa'
 import styles from './Footer.module.css'
 
 export default function Footer() {
@@ -36,11 +36,10 @@ export default function Footer() {
   ]
 
   const socialIcons = [
-    { icon: FaFacebook, link: '#' },
-    { icon: FaTwitter, link: '#' },
-    { icon: FaLinkedin, link: '#' },
-    { icon: FaInstagram, link: '#' },
-    { icon: FaGithub, link: '#' }
+    { icon: FaFacebook, link: 'https://www.facebook.com/share/1BADKhBsJM/' },
+    { icon: FaLinkedin, link: 'https://www.linkedin.com/in/vidusha-chathuranga-51a334241' },
+    { icon: FaGithub, link: 'https://github.com/Vidusha78978' },
+    { icon: FaWhatsapp, link: 'https://wa.me/94760411245' }
   ]
 
   return (
@@ -69,6 +68,8 @@ export default function Footer() {
                   <motion.a
                     key={index}
                     href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className={styles.socialIcon}
                     whileHover={{ scale: 1.2, rotate: 10 }}
                     whileTap={{ scale: 0.95 }}
@@ -113,7 +114,7 @@ export default function Footer() {
 
         <div className={styles.bottom}>
           <p>&copy; {currentYear} Pearl Waves. All rights reserved.</p>
-          <p>Crafted with ❤️ for digital excellence</p>
+          <p>Designed by PearlWaves</p>
         </div>
       </div>
     </motion.footer>

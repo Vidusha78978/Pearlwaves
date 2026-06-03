@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { authApi } from '../utils/supabaseClient'
+import { useAuth } from '../context/AuthContext'
 import styles from './Auth.module.css'
 
 export default function Login() {
@@ -10,18 +10,28 @@ export default function Login() {
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
+  const { login } = useAuth()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     setError('')
+
+    if (!email || !password) {
+      setError('Please enter both email and password')
+      return
+    }
+
     setLoading(true)
 
     try {
-      const { data, error: authError } = await authApi.signIn(email, password)
-      if (authError) throw authError
+      const { data, error: loginError } = await login(email, password)
+      
+      if (loginError) throw new Error(loginError)
+
+      // Successfully logged in
       navigate('/')
     } catch (err) {
-      setError(err.message || 'Login failed. Please try again.')
+      setError(err.message || 'Login failed. Please check your credentials.')
     } finally {
       setLoading(false)
     }

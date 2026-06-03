@@ -37,9 +37,9 @@ export default function Contact() {
   }
 
   const contactInfo = [
-    { icon: FaPhone, label: 'Phone', value: '+1 (555) 123-4567' },
-    { icon: FaEnvelope, label: 'Email', value: 'info@pearlwaves.com' },
-    { icon: FaMapMarkerAlt, label: 'Location', value: 'San Francisco, CA' }
+    { icon: FaPhone, label: 'Phone', value: '0760411245 / 0775768610' },
+    { icon: FaEnvelope, label: 'Email', value: 'pearlwaves2004@gmail.com' },
+    { icon: FaMapMarkerAlt, label: 'Location', value: 'Kandy, Sri Lanka' }
   ]
 
   return (

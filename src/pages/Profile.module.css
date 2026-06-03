@@ -1,0 +1,250 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  min-height: calc(100vh - 200px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profileCard {
+  background: linear-gradient(135deg, rgba(10, 14, 39, 0.8), rgba(10, 14, 39, 0.6));
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.header h1 {
+  font-size: 2rem;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color var(--transition);
+}
+
+.closeBtn:hover {
+  color: var(--text-light);
+}
+
+.errorMessage {
+  background: rgba(255, 0, 110, 0.1);
+  border: 1px solid #ff006e;
+  color: #ff006e;
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 1rem;
+  animation: slideDown 0.3s ease;
+}
+
+.successMessage {
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid #00d4ff;
+  color: #00d4ff;
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 1rem;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.profileDisplay {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 600px) {
+  .infoGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.infoItem,
+.infoItemFull,
+.memberSince {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  transition: all var(--transition);
+}
+
+.infoItem:hover,
+.infoItemFull:hover,
+.memberSince:hover {
+  background: rgba(0, 102, 255, 0.1);
+  border-color: var(--primary);
+}
+
+.infoItemFull {
+  grid-column: 1 / -1;
+}
+
+.memberSince {
+  grid-column: 1 / -1;
+}
+
+.infoItem label,
+.infoItemFull label,
+.memberSince label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.infoItem p,
+.infoItemFull p,
+.memberSince p {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--text-light);
+  word-break: break-word;
+}
+
+.profileForm {
+  animation: fadeIn 0.3s ease;
+}
+
+.profileForm .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.profileForm label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-light);
+  font-weight: 600;
+}
+
+.profileForm input,
+.profileForm textarea {
+  width: 100%;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  color: var(--text-light);
+  font-family: inherit;
+  transition: all var(--transition);
+}
+
+.profileForm input:focus,
+.profileForm textarea:focus {
+  outline: none;
+  background: rgba(0, 102, 255, 0.1);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+}
+
+.profileForm input:disabled {
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+
+.profileForm small {
+  display: block;
+  margin-top: 0.25rem;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+.buttonGroup,
+.formButtonGroup {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.buttonGroup button,
+.formButtonGroup button {
+  flex: 1;
+  padding: 0.75rem 1.5rem;
+}
+
+@media (max-width: 600px) {
+  .buttonGroup,
+  .formButtonGroup {
+    flex-direction: column;
+  }
+
+  .profileCard {
+    padding: 1.5rem;
+  }
+
+  .header h1 {
+    font-size: 1.5rem;
+  }
+}
+
+.loadingSpinner {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  padding: 2rem;
+}
+
+/* Button animations */
+.buttonGroup button,
+.formButtonGroup button {
+  transition: all 0.3s ease;
+}
+
+.buttonGroup button:hover,
+.formButtonGroup button:hover {
+  transform: translateY(-2px);
+}
+
+.buttonGroup button:active,
+.formButtonGroup button:active {
+  transform: translateY(0);
+}

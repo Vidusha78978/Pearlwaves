@@ -105,6 +105,7 @@ CREATE TABLE media_gallery (
   title TEXT NOT NULL,
   media_url TEXT,
   media_type TEXT,
+  user_id UUID REFERENCES auth.users(id) ON DELETE SET NULL,
   created_at TIMESTAMP DEFAULT now()
 );
 ```

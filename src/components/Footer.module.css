@@ -90,6 +90,11 @@
   background: rgba(0, 102, 255, 0.1);
 }
 
+.branding {
+  display: flex;
+  flex-direction: column;
+}
+
 .branding h3 {
   margin-bottom: 0.5rem;
   margin-top: 1rem;
@@ -126,6 +131,15 @@
 @media (max-width: 768px) {
   .content {
     grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .branding {
+    align-items: center;
+  }
+
+  .socials {
+    justify-content: center;
   }
 
   .bottom {
