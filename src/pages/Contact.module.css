@@ -1,0 +1,117 @@
+.contact {
+  width: 100%;
+}
+
+.hero {
+  min-height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 102, 255, 0.1) 0%,
+    rgba(0, 212, 255, 0.05) 100%
+  );
+  text-align: center;
+  padding: 2rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contactSection {
+  padding: 4rem 0;
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.contactInfo h2 {
+  margin-bottom: 1rem;
+  color: var(--text-light);
+}
+
+.contactInfo > p {
+  margin-bottom: 2rem;
+  color: var(--text-muted);
+}
+
+.infoCards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.infoCard {
+  display: flex;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  transition: all var(--transition);
+}
+
+.infoCard:hover {
+  border-color: var(--primary);
+  background: rgba(0, 102, 255, 0.05);
+}
+
+.icon {
+  font-size: 1.5rem;
+  color: var(--primary);
+  margin-top: 0.25rem;
+}
+
+.infoCard h4 {
+  color: var(--text-light);
+  margin-bottom: 0.25rem;
+}
+
+.infoCard p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.success {
+  padding: 1rem;
+  background: rgba(0, 208, 132, 0.1);
+  border: 1px solid var(--success);
+  border-radius: var(--radius-md);
+  color: var(--success);
+  text-align: center;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .contactGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .infoCards {
+    order: 2;
+  }
+
+  .form {
+    order: 1;
+  }
+}
