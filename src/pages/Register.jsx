@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
+import SEO from '../components/SEO'
 import styles from './Auth.module.css'
 
 export default function Register() {
@@ -70,6 +71,11 @@ export default function Register() {
 
   return (
     <div className={styles.authContainer}>
+      <SEO 
+        title="Create Account" 
+        description="Register an account with Pearl Waves to join us and start building amazing digital projects."
+        url="/register"
+      />
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}

@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { contactApi } from '../utils/supabaseClient'
 import { FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa'
+import SEO from '../components/SEO'
 import styles from './Contact.module.css'
 
 export default function Contact() {
@@ -44,6 +45,11 @@ export default function Contact() {
 
   return (
     <div className={styles.contact}>
+      <SEO 
+        title="Contact Us" 
+        description="Get in touch with Pearl Waves to discuss your next web, mobile, or software development project."
+        url="/contact"
+      />
       <motion.section
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

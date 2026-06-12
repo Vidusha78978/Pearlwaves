@@ -1,11 +1,11 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
-export default function SEO({ title, description, keywords, image, url }) {
+export default function SEO({ title, description, keywords, image, url, type = 'website', robots = 'index, follow' }) {
   const siteName = 'Pearl Waves';
   const fullTitle = title ? `${title} | ${siteName}` : `${siteName} | Web, App & Software Development Agency`;
   const defaultDescription = 'Partner with Pearl Waves for premium web development, custom software, and mobile app solutions. We bring your digital projects to life with cutting-edge technology and design.';
-  const defaultKeywords = 'pearlwaves, pearl waves, pearlwaves.online, hire web developer, software development agency, mobile app developers, IT services, custom website design, web app development, tech solutions for business';
+  const defaultKeywords = 'pearlwaves, pearl waves, pearlwaves.online, web development agency, software development company, mobile app developers, IT services, custom website design, web app development, tech solutions for business, digital agency, QA testing, web security';
   const defaultImage = 'https://pearlwaves.online/logo.jpg';
   const currentUrl = url ? `https://pearlwaves.online${url}` : 'https://pearlwaves.online';
 
@@ -15,10 +15,12 @@ export default function SEO({ title, description, keywords, image, url }) {
       <title>{fullTitle}</title>
       <meta name="description" content={description || defaultDescription} />
       <meta name="keywords" content={keywords || defaultKeywords} />
+      <meta name="robots" content={robots} />
+      <meta name="author" content="Pearl Waves" />
       <link rel="canonical" href={currentUrl} />
 
       {/* Open Graph / Facebook */}
-      <meta property="og:type" content="website" />
+      <meta property="og:type" content={type} />
       <meta property="og:url" content={currentUrl} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description || defaultDescription} />

@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /profile
+Disallow: /login
+Disallow: /register
 
 Sitemap: https://pearlwaves.online/sitemap.xml

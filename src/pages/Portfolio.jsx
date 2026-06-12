@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
+import SEO from '../components/SEO'
 import styles from './Portfolio.module.css'
 
 export default function Portfolio() {
@@ -70,6 +71,12 @@ export default function Portfolio() {
 
   return (
     <div className={styles.portfolio}>
+      <SEO 
+        title="Our Portfolio" 
+        description="Explore Pearl Waves' portfolio showcasing our successful web development, software engineering, and mobile app projects."
+        keywords="pearl waves portfolio, web development projects, software case studies, mobile app portfolio, pearlwaves.online projects"
+        url="/portfolio"
+      />
       <motion.section
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

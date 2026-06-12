@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { FaCode, FaDatabase, FaMobileAlt, FaCloud, FaShieldAlt, FaWhatsapp } from 'react-icons/fa'
+import SEO from '../components/SEO'
 import styles from './Services.module.css'
 
 export default function Services() {
@@ -61,6 +62,12 @@ export default function Services() {
 
   return (
     <div className={styles.services}>
+      <SEO 
+        title="Our Services" 
+        description="Discover our range of digital services including web development, mobile apps, software engineering, QA testing, and web security."
+        keywords="pearl waves services, web development, mobile app development, custom software, QA testing, web security"
+        url="/services"
+      />
       <motion.section
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

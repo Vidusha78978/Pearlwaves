@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
+import SEO from '../components/SEO'
 import styles from './Auth.module.css'
 
 export default function Login() {
@@ -42,6 +43,12 @@ export default function Login() {
 
   return (
     <div className={styles.authContainer}>
+      <SEO 
+        title="Login" 
+        description="Sign in to your Pearl Waves account."
+        robots="noindex, follow"
+        url="/login"
+      />
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}

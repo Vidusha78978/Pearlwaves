@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { FaBook, FaVideo, FaFileAlt, FaCode } from 'react-icons/fa'
+import SEO from '../components/SEO'
 import styles from './Resources.module.css'
 
 export default function Resources() {
@@ -69,6 +70,11 @@ export default function Resources() {
 
   return (
     <div className={styles.resources}>
+      <SEO 
+        title="Resources" 
+        description="Access helpful resources, learning materials, and tutorials provided by Pearl Waves."
+        url="/resources"
+      />
       <motion.section
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

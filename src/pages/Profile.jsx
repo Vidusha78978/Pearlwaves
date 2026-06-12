@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import { profileApi } from '../utils/supabaseClient'
+import SEO from '../components/SEO'
 import styles from './Profile.module.css'
 
 export default function Profile() {
@@ -121,6 +122,12 @@ export default function Profile() {
 
   return (
     <div className={styles.container}>
+      <SEO 
+        title="My Profile" 
+        description="Manage your Pearl Waves account profile securely." 
+        robots="noindex, nofollow"
+        url="/profile"
+      />
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

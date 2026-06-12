@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Navigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
+import SEO from '../components/SEO'
 import styles from './Media.module.css'
 
 export default function Media() {
@@ -22,6 +23,11 @@ export default function Media() {
 
   return (
     <div className={styles.media}>
+      <SEO 
+        title="Media Gallery" 
+        description="View the Pearl Waves media gallery featuring our project highlights, team, and company culture."
+        url="/media"
+      />
       <motion.section
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
