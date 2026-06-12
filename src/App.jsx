@@ -7,11 +7,13 @@ import LoadingScreen from './components/LoadingScreen'
 
 // Pages
 import Home from './pages/Home'
+import About from './pages/About'
 import Services from './pages/Services'
 import Portfolio from './pages/Portfolio'
 import Media from './pages/Media'
 import Login from './pages/Login'
 import Register from './pages/Register'
+import ResetPassword from './pages/ResetPassword'
 import Profile from './pages/Profile'
 import Contact from './pages/Contact'
 import Resources from './pages/Resources'
@@ -36,11 +38,15 @@ function App() {
           <main className="main-content">
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
               <Route path="/services" element={<Services />} />
               <Route path="/portfolio" element={<Portfolio />} />
               <Route path="/media" element={<Media />} />
               <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />            <Route path="/profile" element={<Profile />} />              <Route path="/contact" element={<Contact />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/reset-password" element={<ResetPassword />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/contact" element={<Contact />} />
               <Route path="/resources" element={<Resources />} />
             </Routes>
           </main>

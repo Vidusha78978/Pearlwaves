@@ -34,6 +34,21 @@ export const authApi = {
   getCurrentUser: async () => {
     const { data: { user }, error } = await supabase.auth.getUser()
     return { user, error }
+  },
+
+  resetPasswordForEmail: async (email) => {
+    const { data, error } = await supabase.auth.resetPasswordForEmail(email)
+    return { data, error }
+  },
+
+  verifyOtp: async (email, token, type = 'recovery') => {
+    const { data, error } = await supabase.auth.verifyOtp({ email, token, type })
+    return { data, error }
+  },
+
+  updatePassword: async (newPassword) => {
+    const { data, error } = await supabase.auth.updateUser({ password: newPassword })
+    return { data, error }
   }
 }
 

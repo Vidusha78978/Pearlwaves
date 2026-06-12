@@ -10,6 +10,7 @@ CREATE TABLE IF NOT EXISTS user_profiles (
   location TEXT,
   bio TEXT,
   avatar_url TEXT,
+  role TEXT DEFAULT 'subscriber',
   created_at TIMESTAMP WITH TIME ZONE DEFAULT now(),
   updated_at TIMESTAMP WITH TIME ZONE DEFAULT now()
 );

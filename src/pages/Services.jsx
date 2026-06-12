@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { FaCode, FaDatabase, FaMobileAlt, FaCloud, FaBug, FaShieldAlt, FaWhatsapp } from 'react-icons/fa'
+import { FaCode, FaDatabase, FaMobileAlt, FaCloud, FaShieldAlt, FaWhatsapp } from 'react-icons/fa'
 import styles from './Services.module.css'
 
 export default function Services() {
@@ -8,7 +8,7 @@ export default function Services() {
       id: 1,
       icon: FaCode,
       title: 'Web Development',
-      subtitle: 'HTML, CSS, React & WordPress',
+      subtitle: 'HTML, CSS, PHP, Laravel, React & WordPress',
       description: 'Creating responsive, modern websites with cutting-edge technologies. From static sites to dynamic web applications, we deliver solutions that engage users and drive results.',
       features: ['Responsive Design', 'SEO Optimized', 'Performance Focused', 'Modern Stack', 'Mobile First', 'Accessibility']
     },
@@ -24,7 +24,7 @@ export default function Services() {
       id: 3,
       icon: FaMobileAlt,
       title: 'Mobile App Development',
-      subtitle: 'iOS & Android Solutions',
+      subtitle: 'Android App Solutions',
       description: 'Native and cross-platform mobile applications that provide exceptional user experiences. From concept to deployment, we handle every step.',
       features: ['Native Development', 'Cross-Platform', 'UI/UX Design', 'Performance', 'App Store Deployment', 'Maintenance']
     },
@@ -35,14 +35,6 @@ export default function Services() {
       subtitle: 'Progressive Web Apps',
       description: 'Progressive web applications that work seamlessly across devices. Fast, reliable, and engaging - PWAs that bridge web and mobile.',
       features: ['Offline Support', 'Real-time Updates', 'Push Notifications', 'App-like Experience', 'Fast Loading', 'Installable']
-    },
-    {
-      id: 5,
-      icon: FaBug,
-      title: 'Quality Assurance',
-      subtitle: 'Testing & Debugging',
-      description: 'Comprehensive testing and quality assurance to ensure your products meet the highest standards of performance and reliability.',
-      features: ['Manual Testing', 'Automated Testing', 'Performance Testing', 'Security Testing', 'Bug Fixing', 'Documentation']
     },
     {
       id: 6,

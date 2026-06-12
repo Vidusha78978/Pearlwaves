@@ -1,22 +1,23 @@
 import { useState } from 'react'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { FaBars, FaTimes, FaUser, FaSignOutAlt } from 'react-icons/fa'
+import { FaBars, FaTimes, FaUser, FaSignOutAlt, FaSignInAlt, FaUserPlus } from 'react-icons/fa'
 import { useAuth } from '../context/AuthContext'
 import styles from './Navigation.module.css'
 
 export default function Navigation() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [profileOpen, setProfileOpen] = useState(false)
-  const { user, logout } = useAuth()
+  const { user, userRole, logout } = useAuth()
   const navigate = useNavigate()
   const location = useLocation()
 
   const menuItems = [
     { label: 'Home', path: '/' },
+    { label: 'About', path: '/about' },
     { label: 'Services', path: '/services' },
     { label: 'Portfolio', path: '/portfolio' },
-    { label: 'Media', path: '/media' },
+    ...(userRole === 'developer' ? [{ label: 'Media', path: '/media' }] : []),
     { label: 'Resources', path: '/resources' },
     { label: 'Contact', path: '/contact' },
   ]
@@ -42,8 +43,6 @@ export default function Navigation() {
             src="/logo.jpg"
             alt="Pearl Waves Logo"
             className={styles.logoIcon}
-            animate={{ rotate: 360 }}
-            transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
           />
           <span>Pearl Waves</span>
         </Link>
@@ -79,7 +78,7 @@ export default function Navigation() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <FaUser /> {user.email?.split('@')[0]}
+                <FaUser className={styles.authIcon} /> <span className={styles.authText}>{user.email?.split('@')[0]}</span>
               </motion.button>
               
               {profileOpen && (
@@ -114,11 +113,13 @@ export default function Navigation() {
             </div>
           ) : (
             <>
-              <Link to="/login" className="btn btn-secondary btn-sm">
-                Login
+              <Link to="/login" className={`btn btn-secondary btn-sm ${styles.authBtn}`}>
+                <FaSignInAlt className={styles.authIcon} />
+                <span className={styles.authText}>Login</span>
               </Link>
-              <Link to="/register" className="btn btn-primary btn-sm">
-                Sign Up
+              <Link to="/register" className={`btn btn-primary btn-sm ${styles.authBtn}`}>
+                <FaUserPlus className={styles.authIcon} />
+                <span className={styles.authText}>Sign Up</span>
               </Link>
             </>
           )}

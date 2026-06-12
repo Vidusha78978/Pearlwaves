@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { FaCode, FaMobileAlt, FaRocket, FaPalette, FaLaptopCode, FaPenNib, FaWhatsapp } from 'react-icons/fa'
 import styles from './Home.module.css'
+import SEO from '../components/SEO'
 
 export default function Home() {
   const services = [
@@ -56,6 +57,11 @@ export default function Home() {
 
   return (
     <div className={styles.home}>
+      <SEO 
+        title="Home"
+        description="Pearl Waves - Modern Web Development, Software Development, Mobile App & Web App Solutions for your business."
+        url="/"
+      />
       {/* Hero Section */}
       <motion.section
         initial={{ opacity: 0 }}

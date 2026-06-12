@@ -14,14 +14,7 @@ export default function Portfolio() {
       description: 'Full-featured e-commerce platform with React and Node.js',
       tech: ['React', 'Node.js', 'MongoDB', 'Stripe']
     },
-    {
-      id: 2,
-      title: 'Mobile Banking App',
-      category: 'mobile',
-      image: '💳',
-      description: 'Secure mobile banking application for iOS and Android',
-      tech: ['React Native', 'Firebase', 'Security']
-    },
+
     {
       id: 3,
       title: 'Analytics Dashboard',
@@ -29,14 +22,6 @@ export default function Portfolio() {
       image: '📊',
       description: 'Real-time analytics dashboard with data visualization',
       tech: ['React', 'D3.js', 'Python', 'PostgreSQL']
-    },
-    {
-      id: 4,
-      title: 'Social Media App',
-      category: 'mobile',
-      image: '📱',
-      description: 'Cross-platform social networking application',
-      tech: ['Flutter', 'Firebase', 'Real-time DB']
     },
     {
       id: 5,

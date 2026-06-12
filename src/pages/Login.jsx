@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import styles from './Auth.module.css'
 
@@ -10,7 +10,10 @@ export default function Login() {
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
+  const location = useLocation()
   const { login } = useAuth()
+
+  const successMessage = location.state?.message
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -50,6 +53,8 @@ export default function Login() {
           <p>Sign in to access your account</p>
         </div>
 
+        {successMessage && <div className="form-success" style={{ color: 'var(--success)', marginBottom: '1rem', textAlign: 'center' }}>{successMessage}</div>}
+
         <form onSubmit={handleSubmit} className={styles.form}>
           <div className="form-group">
             <label htmlFor="email">Email Address</label>
@@ -76,6 +81,10 @@ export default function Login() {
           </div>
 
           {error && <div className="form-error">{error}</div>}
+
+          <div style={{ textAlign: 'right', marginBottom: '1rem' }}>
+            <Link to="/reset-password" style={{ fontSize: '0.9rem', color: 'var(--primary)' }}>Forgot Password?</Link>
+          </div>
 
           <motion.button
             type="submit"

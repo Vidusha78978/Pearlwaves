@@ -1,7 +1,11 @@
 import { motion } from 'framer-motion'
+import { Navigate } from 'react-router-dom'
+import { useAuth } from '../context/AuthContext'
 import styles from './Media.module.css'
 
 export default function Media() {
+  const { userRole, loading } = useAuth()
+
   const mediaItems = [
     { id: 1, type: 'image', title: 'Project Showcase 1', emoji: '🖼️' },
     { id: 2, type: 'image', title: 'Team Meeting', emoji: '👥' },
@@ -12,6 +16,9 @@ export default function Media() {
     { id: 7, type: 'image', title: 'Code Review', emoji: '💻' },
     { id: 8, type: 'video', title: 'Tutorial Video', emoji: '📹' }
   ]
+
+  if (loading) return null;
+  if (userRole !== 'developer') return <Navigate to="/" replace />;
 
   return (
     <div className={styles.media}>
